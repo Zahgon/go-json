@@ -2,7 +2,6 @@ package benchmark
 
 import "github.com/francoispqt/gojay"
 
-// Response from Clearbit API. Size: 2.4kb
 var MediumFixture = []byte(`{
 	"person": {
 	  "id": "d50887ca-a6ce-4e59-b89f-14f0b5d03b03",
@@ -102,111 +101,71 @@ type CBAvatar struct {
 }
 
 func (m *CBAvatar) UnmarshalJSONObject(dec *gojay.Decoder, key string) error {
-	switch key {
-	case "avatars":
-		return dec.AddString(&m.Url)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
-func (m *CBAvatar) NKeys() int {
-	return 1
-}
 
-func (m *CBAvatar) MarshalJSONObject(enc *gojay.Encoder) {
-	enc.AddStringKey("url", m.Url)
-}
+func (m *CBAvatar) NKeys() int { _ = "STUB: not implemented"; return 0 }
 
-func (m *CBAvatar) IsNil() bool {
-	return m == nil
-}
+func (m *CBAvatar) MarshalJSONObject(enc *gojay.Encoder) { _ = "STUB: not implemented"; return }
+
+func (m *CBAvatar) IsNil() bool { _ = "STUB: not implemented"; return false }
 
 type Avatars []*CBAvatar
 
 func (t *Avatars) UnmarshalJSONArray(dec *gojay.Decoder) error {
-	avatar := CBAvatar{}
-	*t = append(*t, &avatar)
-	return dec.AddObject(&avatar)
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func (m *Avatars) MarshalJSONArray(enc *gojay.Encoder) {
-	for _, e := range *m {
-		enc.AddObject(e)
-	}
-}
-func (m *Avatars) IsNil() bool {
-	return m == nil
-}
+func (m *Avatars) MarshalJSONArray(enc *gojay.Encoder) { _ = "STUB: not implemented"; return }
+
+func (m *Avatars) IsNil() bool { _ = "STUB: not implemented"; return false }
 
 type CBGravatar struct {
 	Avatars Avatars
 }
 
 func (m *CBGravatar) UnmarshalJSONObject(dec *gojay.Decoder, key string) error {
-	switch key {
-	case "avatars":
-		return dec.AddArray(&m.Avatars)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
-func (m *CBGravatar) NKeys() int {
-	return 1
-}
 
-func (m *CBGravatar) MarshalJSONObject(enc *gojay.Encoder) {
-	enc.AddArrayKey("avatars", &m.Avatars)
-}
+func (m *CBGravatar) NKeys() int { _ = "STUB: not implemented"; return 0 }
 
-func (m *CBGravatar) IsNil() bool {
-	return m == nil
-}
+func (m *CBGravatar) MarshalJSONObject(enc *gojay.Encoder) { _ = "STUB: not implemented"; return }
+
+func (m *CBGravatar) IsNil() bool { _ = "STUB: not implemented"; return false }
 
 type CBGithub struct {
 	Followers int
 }
 
 func (m *CBGithub) UnmarshalJSONObject(dec *gojay.Decoder, key string) error {
-	switch key {
-	case "followers":
-		return dec.AddInt(&m.Followers)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
-func (m *CBGithub) NKeys() int {
-	return 1
-}
+func (m *CBGithub) NKeys() int { _ = "STUB: not implemented"; return 0 }
 
-func (m *CBGithub) MarshalJSONObject(enc *gojay.Encoder) {
-	enc.AddIntKey("followers", m.Followers)
-}
+func (m *CBGithub) MarshalJSONObject(enc *gojay.Encoder) { _ = "STUB: not implemented"; return }
 
-func (m *CBGithub) IsNil() bool {
-	return m == nil
-}
+func (m *CBGithub) IsNil() bool { _ = "STUB: not implemented"; return false }
 
 type CBName struct {
 	FullName string `json:"fullName"`
 }
 
 func (m *CBName) UnmarshalJSONObject(dec *gojay.Decoder, key string) error {
-	switch key {
-	case "fullName":
-		return dec.AddString(&m.FullName)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
-func (m *CBName) NKeys() int {
-	return 1
-}
+func (m *CBName) NKeys() int { _ = "STUB: not implemented"; return 0 }
 
-func (m *CBName) MarshalJSONObject(enc *gojay.Encoder) {
-	enc.AddStringKey("fullName", m.FullName)
-}
+func (m *CBName) MarshalJSONObject(enc *gojay.Encoder) { _ = "STUB: not implemented"; return }
 
-func (m *CBName) IsNil() bool {
-	return m == nil
-}
+func (m *CBName) IsNil() bool { _ = "STUB: not implemented"; return false }
 
 type CBPerson struct {
 	Name     *CBName   `json:"name"`
@@ -215,33 +174,15 @@ type CBPerson struct {
 }
 
 func (m *CBPerson) UnmarshalJSONObject(dec *gojay.Decoder, key string) error {
-	switch key {
-	case "name":
-		m.Name = &CBName{}
-		return dec.AddObject(m.Name)
-	case "github":
-		m.Github = &CBGithub{}
-		return dec.AddObject(m.Github)
-	case "gravatar":
-		m.Gravatar = &CBGravatar{}
-		return dec.AddObject(m.Gravatar)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
-func (m *CBPerson) NKeys() int {
-	return 3
-}
+func (m *CBPerson) NKeys() int { _ = "STUB: not implemented"; return 0 }
 
-func (m *CBPerson) MarshalJSONObject(enc *gojay.Encoder) {
-	enc.AddObjectKey("name", m.Name)
-	enc.AddObjectKey("github", m.Github)
-	enc.AddObjectKey("gravatar", m.Gravatar)
-}
+func (m *CBPerson) MarshalJSONObject(enc *gojay.Encoder) { _ = "STUB: not implemented"; return }
 
-func (m *CBPerson) IsNil() bool {
-	return m == nil
-}
+func (m *CBPerson) IsNil() bool { _ = "STUB: not implemented"; return false }
 
 type MediumPayload struct {
 	Person  *CBPerson `json:"person"`
@@ -255,109 +196,16 @@ type MediumPayloadEasyJson struct {
 }
 
 func (m *MediumPayload) UnmarshalJSONObject(dec *gojay.Decoder, key string) error {
-	switch key {
-	case "person":
-		m.Person = &CBPerson{}
-		return dec.AddObject(m.Person)
-	case "company":
-		dec.AddString(&m.Company)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
-func (m *MediumPayload) NKeys() int {
-	return 2
-}
+func (m *MediumPayload) NKeys() int { _ = "STUB: not implemented"; return 0 }
 
-func (m *MediumPayload) MarshalJSONObject(enc *gojay.Encoder) {
-	enc.AddObjectKey("person", m.Person)
-	// enc.AddStringKey("company", m.Company)
-}
+func (m *MediumPayload) MarshalJSONObject(enc *gojay.Encoder) { _ = "STUB: not implemented"; return }
 
-func (m *MediumPayload) IsNil() bool {
-	return m == nil
-}
+func (m *MediumPayload) IsNil() bool { _ = "STUB: not implemented"; return false }
 
-func NewMediumPayload() *MediumPayload {
-	return &MediumPayload{
-		Company: "test",
-		Person: &CBPerson{
-			Name: &CBName{
-				FullName: "test",
-			},
-			Github: &CBGithub{
-				Followers: 100,
-			},
-			Gravatar: &CBGravatar{
-				Avatars: Avatars{
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-				},
-			},
-		},
-	}
-}
+func NewMediumPayload() *MediumPayload { _ = "STUB: not implemented"; return nil }
 
-func NewMediumPayloadEasyJson() *MediumPayloadEasyJson {
-	return &MediumPayloadEasyJson{
-		Company: "test",
-		Person: &CBPerson{
-			Name: &CBName{
-				FullName: "test",
-			},
-			Github: &CBGithub{
-				Followers: 100,
-			},
-			Gravatar: &CBGravatar{
-				Avatars: Avatars{
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-					&CBAvatar{
-						Url: "http://test.com",
-					},
-				},
-			},
-		},
-	}
-}
+func NewMediumPayloadEasyJson() *MediumPayloadEasyJson { _ = "STUB: not implemented"; return nil }
