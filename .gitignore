@@ -1,2 +1,6 @@
 cover.html
 cover.out
+
+.aider*
+logs/
+vendor/
