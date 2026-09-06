@@ -1,8 +1,6 @@
 package json
 
 import (
-	"fmt"
-
 	"github.com/goccy/go-json/internal/encoder"
 )
 
@@ -40,19 +38,13 @@ const (
 )
 
 func createColorFormat(attr colorAttr) ColorFormat {
-	return ColorFormat{
-		Header: wrapColor(attr),
-		Footer: resetColor(),
-	}
+	_ = "STUB: not implemented"
+	return *new(ColorFormat)
 }
 
-func wrapColor(attr colorAttr) string {
-	return fmt.Sprintf("%s[%dm", escape, attr)
-}
+func wrapColor(attr colorAttr) string { _ = "STUB: not implemented"; return "" }
 
-func resetColor() string {
-	return wrapColor(colorAttr(0))
-}
+func resetColor() string { _ = "STUB: not implemented"; return "" }
 
 var (
 	DefaultColorScheme = &ColorScheme{
